@@ -26,6 +26,7 @@ class CmsController extends Controller
                 $html = $_POST['editor'];
                 $newPage = new Page();
                 $newPage->__set_name($_POST['pageNameInput']);
+                $newPage->__set_title($_POST['pageNameInput']);
                 $newPage->__set_html($html);
                 $this->service->create_Page($newPage);
                 return;

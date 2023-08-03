@@ -125,6 +125,7 @@ function generatePlanningSection() {
     'white'
   );
   button.innerHTML = 'Buy Tickets';
+ button.addEventListener('click', GotoTicket);
 
   sectionTitleContainer.appendChild(sectionTitle);
 
@@ -316,3 +317,10 @@ async function getDataFromLocationAPI() {
 }
 
 generateDancePage();
+
+
+
+
+function GotoTicket() {
+  location.href = "/danceTicket";
+}

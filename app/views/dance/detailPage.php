@@ -69,7 +69,7 @@
     }
 
     function buy() {
-        // window.location.href = "/dance/buy";
+        window.location.href = "/danceTicket";
     }
 </script>
 

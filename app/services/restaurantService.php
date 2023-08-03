@@ -15,10 +15,10 @@ class RestaurantService
     return $repo->get_RestaurantById($id);
   }
 
-  public function edit_Restaurant($id, $name, $category, $star, $michelinStar, $description, $address, $phone_number, $capacity)
+  public function edit_Restaurant($id, $name, $category, $star, $michelinStar, $description, $address, $phone_number)
   {
     $repo = new RestaurantRepository();
-    $repo->edit_Restaurant($id, $name, $category, $star, $michelinStar, $description, $address, $phone_number, $capacity);
+    $repo->edit_Restaurant($id, $name, $category, $star, $michelinStar, $description, $address, $phone_number);
   }
 
   public function insert_Restaurant(Restaurant $restaurant)

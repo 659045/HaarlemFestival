@@ -9,7 +9,6 @@ class Restaurant implements JsonSerializable
     private ?string $description = null;
     private ?string $address = null;
     private ?string $phone_number = null;
-    private ?int $capacity = null;
     private ?string $imagePath = null;
 
 
@@ -97,17 +96,6 @@ class Restaurant implements JsonSerializable
         return $this;
     }
 
-    public function get_capacity(): int
-    {
-        return $this->capacity;
-    }
-
-    public function __set_capacity(int $capacity): self
-    {
-        $this->capacity = $capacity;
-        return $this;
-    }
-
     public function get_imagePath(): string
     {
         return $this->imagePath;
@@ -131,7 +119,6 @@ class Restaurant implements JsonSerializable
             'description' => $this->description,
             'address' => $this->address,
             'phone_number' => $this->phone_number,
-            'capacity' => $this->capacity,
             'imagePath' => $this->imagePath
         ];
     }

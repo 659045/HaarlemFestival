@@ -1,16 +1,17 @@
 <?php
 require __DIR__ . '/../../vendor/autoload.php';
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
 use Dompdf\Dompdf;
 use Endroid\QrCode\Label\Label;
 use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelHigh;
 
-$qrcode = new QrCode("Testing QR Code");
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $text = $_POST["Ticket"];
+    print_r($text);
 
     $qr_code = QrCode::create($text)
         ->setErrorCorrectionLevel(new ErrorCorrectionLevelHigh); //makes the qr code more resillient
@@ -25,117 +26,172 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $result = $writer->write($qr_code, label: $label);
 
     //saves the qr code to a file
-    // $result->saveToFile(__DIR__ . "/qrCode.png");
+    // $qrCodeFile = __DIR__ . "/qrCode.png";
+    // $result->saveToFile($qrCodeFile);
+    
 
     $dataUri = $result->getDataUri();
 
-    $dompdf = new Dompdf();
+    $qrDompdf = new Dompdf();
 
     //image in pdf format
-    // $dompdf->loadHtml("<img src='$dataUri'>");
+    //$dompdf->loadHtml("<img src='$dataUri'>");
+
+
+    $qrDompdf->loadHtml("
+        <html>
+            <head>
+                <meta charset='utf-8'>
+                <title>Event Ticket</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .ticket {
+                        width: 500px;
+                        margin: 50px auto;
+                        background-color: #f9f9f9;
+                        border-radius: 8px;
+                        padding: 20px;
+                        text-align: center;
+                    }
+                    .ticket h1 {
+                        font-size: 24px;
+                        margin-bottom: 20px;
+                    }
+                    .ticket p {
+                        font-size: 16px;
+                        margin-bottom: 10px;
+                    }
+                    .ticket .qr-code {
+                        margin-top: 30px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class='ticket'>
+                    <h1>Event Ticket</h1>
+                    <p>Event: Haarlem Festival</p>
+                    <p>Date: January 1, 2023</p>
+                    <p>Location: Haarlem, Netherlands</p>
+                    <div class='qr-code'>
+                        <img src='$dataUri' alt='QR Code' style='width: 200px; height: 200px;'>
+                    </div>
+                </div>
+            </body>
+        </html>
+    ");
+
+    $qrDompdf->setPaper('A4', 'landscape');
+    $qrDompdf->render();
+
+    $ticketPdfFile = __DIR__ . "/ticket.pdf";
+    file_put_contents($ticketPdfFile, $qrDompdf->output());
+
+    $invoiceDompdf = new Dompdf();
 
     //invoice in pdf format
-    $dompdf->loadHtml(
+    $invoiceDompdf->loadHtml(
         "
-            <style>
-            *
-        {
-            border: 0;
-            box-sizing: content-box;
-            color: inherit;
-            font-family: inherit;
-            font-size: inherit;
-            font-style: inherit;
-            font-weight: inherit;
-            line-height: inherit;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-decoration: none;
-            vertical-align: top;
-        }
+        <style>
+                *
+            {
+                border: 0;
+                box-sizing: content-box;
+                color: inherit;
+                font-family: inherit;
+                font-size: inherit;
+                font-style: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                text-decoration: none;
+                vertical-align: top;
+            }
 
-        /* heading */
+            /* heading */
 
-        h1 { font: bold 100% sans-serif; letter-spacing: 0.5em; text-align: center; text-transform: uppercase; margin-left: 50px; }
-        h2 { font: bold 100% sans-serif; letter-spacing: 0.5em; text-transform: uppercase; }
+            h1 { font: bold 100% sans-serif; letter-spacing: 0.5em; text-align: center; text-transform: uppercase; margin-left: 50px; }
+            h2 { font: bold 100% sans-serif; letter-spacing: 0.5em; text-transform: uppercase; }
 
-        /* table */
+            /* table */
 
-        table { font-size: 75%; table-layout: fixed; width: 100%; }
-        table { border-collapse: separate; border-spacing: 2px; }
-        th, td { border-width: 1px; padding: 0.5em; position: relative; text-align: left; }
-        th, td { border-radius: 0.25em; border-style: solid; }
-        th { background: #EEE; border-color: #BBB; }
-        td { border-color: #DDD; }
+            table { font-size: 75%; table-layout: fixed; width: 100%; }
+            table { border-collapse: separate; border-spacing: 2px; }
+            th, td { border-width: 1px; padding: 0.5em; position: relative; text-align: left; }
+            th, td { border-radius: 0.25em; border-style: solid; }
+            th { background: #EEE; border-color: #BBB; }
+            td { border-color: #DDD; }
 
-        /* page */
+            /* page */
 
-        html { font: 16px/1 'Open Sans', sans-serif; overflow: auto; padding: 0.5in; }
-        html { background: #999; cursor: default; }
+            html { font: 16px/1 'Open Sans', sans-serif; overflow: auto; }
+            html { background: #999; cursor: default; }
 
-        body { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; padding: 0.5in; width: 8.5in; }
-        body { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5); }
+            body { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; width: 8.5in; }
+            body { background: #FFF; border-radius: 1px; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5); }
 
-        /* header */
+            /* header */
 
-        header { margin: 0 0 3em; }
-        header:after { clear: both; content: ''; display: table; }
+            header { margin: 0 0 3em; }
+            header:after { clear: both; content: ''; display: table; }
 
-        header h1 { background: #000; border-radius: 0.25em; color: #FFF; margin: 0 0 1em; padding: 0.5em 0; }
-        header address { float: left; font-size: 75%; font-style: normal; line-height: 1.25; margin: 0 1em 1em 0; }
-        header address p { margin: 0 0 0.25em; }
-        header span, header img { display: block; float: right; }
-        header span { margin: 0 0 1em 1em; max-height: 25%; max-width: 60%; position: relative; }
-        header img { max-height: 100%; max-width: 100%; }
+            header h1 { background: #000; border-radius: 0.25em; color: #FFF; margin: 0 0 1em; padding: 0.5em 0; }
+            header address { float: left; font-size: 75%; font-style: normal; line-height: 1.25; margin: 0 1em 1em 0; }
+            header address p { margin: 0 0 0.25em; }
+            header span, header img { display: block; float: right; }
+            header span { margin: 0 0 1em 1em; max-height: 25%; max-width: 60%; position: relative; }
+            header img { max-height: 100%; max-width: 100%; }
 
 
-        /* article */
+            /* article */
 
-        article, article address, table.meta, table.inventory { margin: 0 0 3em; }
-        article:after { clear: both; content: ''; display: table; }
-      
+            article, article address, table.meta, table.inventory { margin: 0 0 3em; }
+            article:after { clear: both; content: ''; display: table; }
+        
 
-        /* table info & balance */
+            /* table info & balance */
 
-        table.info, table.balance { float: right; width: 36%; margin-bottom: 50px;}
-        table.info:after, table.balance:after { clear: both; content: ''; display: table; }
+            table.info, table.balance { float: right; width: 36%; margin-bottom: 50px;}
+            table.info:after, table.balance:after { clear: both; content: ''; display: table; }
 
-        /* table info */
+            /* table info */
 
-        table.info th { width: 40%; }
-        table.info td { width: 60%; }
+            table.info th { width: 40%; }
+            table.info td { width: 60%; }
 
-        /* table items */
+            /* table items */
+            table.inventory { clear: both; width: 100%; }
+            table.inventory th { font-weight: bold; text-align: center; }
 
-        table.inventory { clear: both; width: 100%; }
-        table.inventory th { font-weight: bold; text-align: center; }
+            table.inventory td:nth-child(1) { width: 26%; }
+            table.inventory td:nth-child(2) { width: 38%; }
+            table.inventory td:nth-child(3) { text-align: right; width: 12%; }
+            table.inventory td:nth-child(4) { text-align: right; width: 12%; }
+            table.inventory td:nth-child(5) { text-align: right; width: 12%; }
 
-        table.inventory td:nth-child(1) { width: 26%; }
-        table.inventory td:nth-child(2) { width: 38%; }
-        table.inventory td:nth-child(3) { text-align: right; width: 12%; }
-        table.inventory td:nth-child(4) { text-align: right; width: 12%; }
-        table.inventory td:nth-child(5) { text-align: right; width: 12%; }
+            /* table balance */
+            table.balance th, table.balance td { width: 50%; }
+            table.balance td { text-align: right; }
 
-        /* table balance */
+            /* aside */
 
-        table.balance th, table.balance td { width: 50%; }
-        table.balance td { text-align: right; }
+            aside h1 { border: none; border-width: 0 0 1px; margin: 0 0 1em; }
+            aside h1 { border-color: #999; border-bottom-style: solid; }
 
-        /* aside */
+            /* @media print {
+                * { -webkit-print-color-adjust: exact; }
+                html { background: none; padding: 0; }
+                body { box-shadow: none; margin: 0; }
+                .add, .cut { display: none; }
+            }
 
-        aside h1 { border: none; border-width: 0 0 1px; margin: 0 0 1em; }
-        aside h1 { border-color: #999; border-bottom-style: solid; }
-
-        /* @media print {
-            * { -webkit-print-color-adjust: exact; }
-            html { background: none; padding: 0; }
-            body { box-shadow: none; margin: 0; }
-            .add, .cut { display: none; }
-        }
-
-        @page { margin: 0; } */
-    </style>
+            @page { margin: 0; } */
+        </style>
 
     <html>
         <head>
@@ -223,18 +279,46 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         "
     );
 
-    $dompdf->setPaper('A4', 'landscape');
-    $dompdf->render();
-    $dompdf->stream('Ticket.pdf', $options = []);
+    $invoiceDompdf->render();
 
-    //header("Content-Type: image/png");
-
-    //print qr code on website
-    //echo $result->getString();
-
+    $invoicePdfFile = __DIR__ . "/invoice.pdf";
+    file_put_contents($invoicePdfFile, $invoiceDompdf->output());
 
     // validates the qr code with the desired value
     //$writer->validateResult($result, 'Life is too short to be generating QR codes');
+
+    // Create a new PHPMailer instance
+    $mailer = new PHPMailer(true);
+
+    try {
+        // Server settings
+        $mailer->isSMTP();
+        $mailer->Host = 'smtp.gmail.com';
+        $mailer->SMTPAuth = true;
+        $mailer->Username = 'festivalsupp0rt@gmail.com';  // Your SMTP username
+        $mailer->Password = 'sqbjicugzpqmtrar';  // Your SMTP password
+        $mailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mailer->Port = 465;  // Your SMTP port (e.g., 587 for TLS)
+
+        // Sender and recipient
+        $mailer->setFrom('festivalsupp0rt@gmail.com','Festival Support');
+        $mailer->addAddress($_SESSION['USER_MAIL'], 'user');
+
+        // Attach the PDF files
+        $mailer->addAttachment($ticketPdfFile, 'ticket.pdf');
+        $mailer->addAttachment($invoicePdfFile, 'invoice.pdf');
+
+        // Email subject and body
+        $mailer->Subject = 'Event Ticket and Invoice';
+        $mailer->Body = 'Please find the attached event ticket and invoice.';
+
+        // Send the email
+        $mailer->send();
+
+        echo 'Email sent successfully!';
+    } catch (Exception $e) {
+        echo 'Email could not be sent. Error: ', $mailer->ErrorInfo;
+    }
 }
 
 

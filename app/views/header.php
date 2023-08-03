@@ -9,7 +9,7 @@ global $selected;
 $unselected = '#F7F7FB'; //white
 $selected = '#FC5B84'; // pink
 global $colours;
-$colours = array("yummie" => '', "tour" => '', "dance" => '', "login" => '');
+$colours = array("yummie" => '', "tour" => '', "dance" => '', "login" => '', "pages" => '');
 
 $service = new PageService();
 
@@ -73,7 +73,7 @@ function loadHTML()
               <a href='/dance'>Dance</a>
             </li>
             </li>
-            <button data-dropdown-toggle='dropdownPages' class='transition ease-out hover:translate-y-[-5px] text-[" . $GLOBALS['colours']['dance'] . "]'>
+            <button data-dropdown-toggle='dropdownPages' class='transition ease-out hover:translate-y-[-5px] text-[" . $GLOBALS['colours']['pages'] . "]'>
               Pages
             </button>
           </ul>
@@ -185,7 +185,7 @@ function loadHTML()
 
     //get listElement
     div = document.getElementById('pageList');
-    for (let i = 0; i < pages.length; i++) {
+    for (let i = 5; i < pages.length; i++) {
       pageList.innerHTML += '<li class="transition ease-out hover:translate-y-[-5px]"><a href="/page/' + pages[i].name + '">' + pages[i].name + '</a></li>'
     }
   }

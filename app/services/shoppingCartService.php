@@ -23,10 +23,4 @@ class ShoppingCartService
         return $repo->editTicket($ticket);
     }
 
-    public function checkout()
-    {
-        $repo = new ShoppingCartRepository();
-        return $repo->checkout();
-    }
-
 }

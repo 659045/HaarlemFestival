@@ -60,4 +60,14 @@ class DanceSessionRepository extends Repository
       echo $e;
     }
   }
+
+
+  public function updateTicketCountByEventId($id){
+    try {
+      $stmt = $this->conn->prepare("UPDATE `event_edm` SET `ticketsAmount`=(ticketsAmount-1) WHERE id = :id");
+      $stmt->execute(array(':id' => $id));
+    } catch (PDOException $e) {
+      echo $e;
+    }
+  }
 }

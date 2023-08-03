@@ -31,4 +31,5 @@ class ShoppingCartRepository extends Repository
             }
         }
     }
+
 }

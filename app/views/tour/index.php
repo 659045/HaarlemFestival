@@ -11,12 +11,13 @@
 
 <title>Haarlem Tour</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="/js/tour/index.js"></script>
 
 <!-- body class is always empty from db -->
 <!-- <body class="overflow-x-hidden bg-[#F7F7FB] flex flex-col items-center h-fit w-screen">
     <div class="lg:w-[1280px] md:w-[100vw] sm:w-[100vw] mt-[100px]" id="content-container">
         <div class="mt-[100px]" id="introSection">
-            <h1 class="text-[36px] font-bold w-[600px]">Come join us on a stroll through <span class="text-[#42BFDD]">Haarlem’s</span> historic city centre</h1>
+            <h1 class="text-[36px] font-bold w-[600px]">Come join us on a stroll through <span class="text-[#42BFDD]">Haarlem’s</span> historic  city centre</h1>
             <p class="text-xl w-[600px] mt-[20px]">Take the tour through Haarlem with one of our expert guides, and discover the city’s historic sites.</p>
         </div>
         <div class="grid grid-cols-3 mt-[100px] ">

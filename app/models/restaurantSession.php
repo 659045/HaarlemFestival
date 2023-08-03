@@ -8,6 +8,10 @@ class RestaurantSession implements JsonSerializable
     private ?string $session_startTime = null;
     private ?string $session_endTime = null;
 
+    private ?string $session_date = null;
+
+    private ?int $seatings = null;
+
 
     public function get_id(): int
     {
@@ -73,6 +77,28 @@ class RestaurantSession implements JsonSerializable
         $this->session_endTime = $session_endTime;
         return $this;
     }
+
+    public function get_session_date(): string
+    {
+        return $this->session_date;
+    }
+
+    public function __set_session_date(string $session_date): self
+    {
+        $this->session_date = $session_date;
+        return $this;
+    }
+
+    public function get_seatings(): int
+    {
+        return $this->seatings;
+    }
+
+    public function __set_seatings(int $seatings): self
+    {
+        $this->seatings = $seatings;
+        return $this;
+    }
  
     public function jsonSerialize(): mixed
     {
@@ -82,7 +108,9 @@ class RestaurantSession implements JsonSerializable
             'adult_Price' => $this->adult_Price,
             'kids_Price' => $this->kids_Price,
             'session_startTime' => $this->session_startTime,
-            'session_endTime' => $this->session_endTime
+            'session_endTime' => $this->session_endTime,
+            'session_date' => $this->session_date,
+            'seatings' => $this->seatings
         ];
     }
 }

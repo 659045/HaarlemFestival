@@ -23,7 +23,18 @@ class FoodController extends Controller
     {
         if (isset($_GET['id'])) {
             $restaurant = $this->restaurantService->get_RestaurantById($_GET['id']);
-            $restaurantSessions = $this->restaurantSessionService->get_AllRestaurantSessionsByRestaurantId($_GET['id']);
+            $sessions = $this->restaurantSessionService->get_AllRestaurantSessionsByRestaurantId($_GET['id']);
+            $restaurantSessions = array();
+            $addedSessionTimes = array();
+            foreach ($sessions as $session) {
+                $sessionStartTime = $session->get_session_startTime();
+                  
+                if (!in_array($sessionStartTime, $addedSessionTimes)) {
+                    $addedSessionTimes[] = $sessionStartTime;
+                    $restaurantSessions[] = $session;
+                }
+            }
+    
             $imageString = $restaurant->get_imagePath();
             $imagePaths = explode(":", $imageString);
         }

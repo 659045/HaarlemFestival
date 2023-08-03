@@ -3,10 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Apr 21, 2023 at 01:58 PM
--- Server version: 10.10.2-MariaDB-1:10.10.2+maria~ubu2204
--- PHP Version: 8.0.26
-
+-- Generation Time: Jun 22, 2023 at 09:31 AM
+-- Server version: 11.0.2-MariaDB-1:11.0.2+maria~ubu2204
+-- PHP Version: 8.1.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -113,17 +112,170 @@ INSERT INTO `dance_location` (`id`, `name`, `address`, `imagePath`, `capacity`) 
 --
 
 CREATE TABLE `events` (
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `ticketsAmount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`) VALUES
-(1),
-(2),
-(3);
+INSERT INTO `events` (`id`, `ticketsAmount`) VALUES
+(1, 52),
+(2, 52),
+(3, 52),
+(4, 40),
+(5, 40),
+(6, 40),
+(7, 36),
+(8, 36),
+(9, 36),
+(10, 48),
+(11, 48),
+(12, 48),
+(13, 59),
+(14, 60),
+(15, 100),
+(16, 100),
+(17, 100),
+(18, 45),
+(19, 45),
+(20, 45),
+(21, 200),
+(22, 1500),
+(23, 1500),
+(24, 200),
+(25, 300),
+(26, 200),
+(27, 200),
+(28, 2000),
+(29, 300),
+(30, 1500),
+(31, 200),
+(32, 2000),
+(33, 2000),
+(34, 1997),
+(35, 2000),
+(36, 2000),
+(37, 300),
+(38, 1500),
+(39, 19),
+(40, 19),
+(41, 20),
+(42, 20),
+(43, 20),
+(44, 20),
+(45, 20),
+(46, 20),
+(47, 20),
+(48, 20),
+(49, 20),
+(50, 20),
+(51, 20),
+(52, 20),
+(53, 20),
+(54, 20),
+(55, 20),
+(56, 20),
+(57, 20),
+(58, 20),
+(59, 20),
+(60, 20),
+(61, 20),
+(62, 20),
+(63, 20),
+(64, 20),
+(65, 20),
+(66, 20),
+(67, 20),
+(68, 20),
+(69, 20),
+(70, 20),
+(71, 20),
+(72, 20),
+(73, 20),
+(74, 20),
+(75, 50),
+(76, 52),
+(77, 52),
+(78, 52),
+(79, 52),
+(80, 52),
+(81, 52),
+(82, 52),
+(83, 52),
+(84, 52),
+(85, 52),
+(86, 52),
+(87, 40),
+(88, 40),
+(89, 40),
+(90, 40),
+(91, 40),
+(92, 40),
+(93, 40),
+(94, 40),
+(95, 40),
+(96, 40),
+(97, 40),
+(98, 40),
+(99, 36),
+(100, 36),
+(101, 36),
+(102, 36),
+(103, 36),
+(104, 36),
+(105, 36),
+(106, 36),
+(107, 36),
+(108, 36),
+(109, 36),
+(110, 36),
+(111, 48),
+(112, 48),
+(113, 48),
+(114, 48),
+(115, 48),
+(116, 48),
+(117, 48),
+(118, 48),
+(119, 48),
+(120, 48),
+(121, 48),
+(122, 48),
+(123, 60),
+(124, 60),
+(125, 60),
+(126, 60),
+(127, 60),
+(128, 60),
+(129, 60),
+(130, 60),
+(131, 100),
+(132, 100),
+(133, 100),
+(134, 100),
+(135, 100),
+(136, 100),
+(137, 100),
+(138, 100),
+(139, 100),
+(140, 100),
+(141, 100),
+(142, 100),
+(143, 45),
+(144, 45),
+(145, 45),
+(146, 45),
+(147, 45),
+(148, 45),
+(149, 45),
+(150, 45),
+(151, 45),
+(152, 45),
+(153, 45),
+(154, 45),
+(155, 52);
 
 -- --------------------------------------------------------
 
@@ -147,24 +299,24 @@ CREATE TABLE `event_edm` (
 --
 
 INSERT INTO `event_edm` (`id`, `venue`, `artist_id`, `date`, `session`, `duration`, `ticketsAmount`, `price`) VALUES
-(1, 1, 1, '2023-07-27 10:00:00.0', 'Back2Back', 360, 1500, 75),
-(6, 3, 4, '2023-07-27 22:00:00.0', 'Club', 90, 200, 60),
-(7, 4, 1, '2023-07-27 23:00:00.0', 'Club', 90, 300, 60),
-(8, 5, 2, '2023-07-27 22:00:00.0', 'Club', 90, 200, 60),
-(9, 6, 3, '2023-07-27 22:00:00.0', 'Club', 90, 200, 60),
-(10, 2, 1, '2023-07-28 14:00:00.0', 'Back2Back', 540, 2000, 110),
-(11, 4, 6, '2023-07-28 22:00:00.0', 'Club', 90, 300, 60),
-(12, 1, 4, '2023-07-28 21:00:00.0', 'TiëstoWorld', 240, 1500, 75),
-(13, 3, 5, '2023-07-28 23:00:00.0', 'Club', 90, 200, 60),
-(14, 2, 6, '2023-07-29 14:00:00.0', 'Back2Back', 540, 2000, 110),
-(15, 2, 3, '2023-07-28 14:00:00.0', 'Back2Back', 540, 2000, 110),
-(16, 2, 2, '2023-07-28 14:00:00.0', 'Back2Back', 540, 2000, 110),
-(17, 2, 4, '2023-07-29 14:00:00.0', 'Back2Back', 540, 2000, 110),
-(18, 2, 5, '2023-07-29 14:00:00.0', 'Back2Back', 540, 2000, 110),
-(19, 4, 2, '2023-07-29 19:00:00.0', 'Club', 90, 300, 60),
-(20, 5, 1, '2023-07-29 21:00:00.0', 'Club', 90, 1500, 90),
 (21, 3, 3, '2023-07-29 16:00:00.0', 'Club', 90, 200, 60),
-(22, 1, 6, '2023-07-27 20:00:00.0', 'Back2Back', 360, 1500, 75);
+(22, 1, 6, '2023-07-27 20:00:00.0', 'Back2Back', 360, 1500, 75),
+(23, 1, 1, '2023-07-27 10:00:00.0', 'Back2Back', 360, 1500, 75),
+(24, 3, 4, '2023-07-27 22:00:00.0', 'Club', 90, 200, 60),
+(25, 4, 1, '2023-07-27 23:00:00.0', 'Club', 90, 300, 60),
+(26, 5, 2, '2023-07-27 22:00:00.0', 'Club', 90, 200, 60),
+(27, 6, 3, '2023-07-27 22:00:00.0', 'Club', 90, 200, 60),
+(28, 2, 1, '2023-07-28 14:00:00.0', 'Back2Back', 540, 2000, 110),
+(29, 4, 6, '2023-07-28 22:00:00.0', 'Club', 90, 300, 60),
+(30, 1, 4, '2023-07-28 21:00:00.0', 'TiëstoWorld', 240, 1500, 75),
+(31, 3, 5, '2023-07-28 23:00:00.0', 'Club', 90, 200, 60),
+(32, 2, 6, '2023-07-29 14:00:00.0', 'Back2Back', 540, 2000, 110),
+(33, 2, 3, '2023-07-28 14:00:00.0', 'Back2Back', 540, 2000, 110),
+(34, 2, 2, '2023-07-28 14:00:00.0', 'Back2Back', 540, 2000, 110),
+(35, 2, 4, '2023-07-29 14:00:00.0', 'Back2Back', 540, 2000, 110),
+(36, 2, 5, '2023-07-29 14:00:00.0', 'Back2Back', 540, 2000, 110),
+(37, 4, 2, '2023-07-29 19:00:00.0', 'Club', 90, 300, 60),
+(38, 5, 1, '2023-07-29 21:00:00.0', 'Club', 90, 1500, 90);
 
 -- --------------------------------------------------------
 
@@ -174,8 +326,53 @@ INSERT INTO `event_edm` (`id`, `venue`, `artist_id`, `date`, `session`, `duratio
 
 CREATE TABLE `event_stroll` (
   `id` int(11) NOT NULL,
-  `price` double NOT NULL
+  `price` double NOT NULL,
+  `date` datetime NOT NULL,
+  `language` varchar(255) NOT NULL,
+  `family_Price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `event_stroll`
+--
+
+INSERT INTO `event_stroll` (`id`, `price`, `date`, `language`, `family_Price`) VALUES
+(39, 17.5, '2023-07-26 10:00:00', 'english', 60),
+(40, 17.5, '2023-07-26 10:00:00', 'dutch', 60),
+(41, 17.5, '2023-07-26 10:00:00', 'chinese', 60),
+(42, 17.5, '2023-07-26 13:00:00', 'english', 60),
+(43, 17.5, '2023-07-26 13:00:00', 'dutch', 60),
+(44, 17.5, '2023-07-26 13:00:00', 'chinese', 60),
+(45, 17.5, '2023-07-26 16:00:00', 'english', 60),
+(46, 17.5, '2023-07-26 16:00:00', 'dutch', 60),
+(47, 17.5, '2023-07-26 16:00:00', 'chinese', 60),
+(48, 17.5, '2023-07-27 10:00:00', 'english', 60),
+(49, 17.5, '2023-07-27 10:00:00', 'dutch', 60),
+(50, 17.5, '2023-07-27 10:00:00', 'chinese', 60),
+(51, 17.5, '2023-07-27 13:00:00', 'english', 60),
+(52, 17.5, '2023-07-27 13:00:00', 'dutch', 60),
+(53, 17.5, '2023-07-27 13:00:00', 'chinese', 60),
+(54, 17.5, '2023-07-27 16:00:00', 'english', 60),
+(55, 17.5, '2023-07-27 16:00:00', 'dutch', 60),
+(56, 17.5, '2023-07-27 16:00:00', 'chinese', 60),
+(57, 17.5, '2023-07-28 10:00:00', 'english', 60),
+(58, 17.5, '2023-07-28 10:00:00', 'dutch', 60),
+(59, 17.5, '2023-07-28 10:00:00', 'chinese', 60),
+(60, 17.5, '2023-07-28 13:00:00', 'english', 60),
+(61, 17.5, '2023-07-28 13:00:00', 'dutch', 60),
+(62, 17.5, '2023-07-28 13:00:00', 'chinese', 60),
+(63, 17.5, '2023-07-28 16:00:00', 'english', 60),
+(64, 17.5, '2023-07-28 16:00:00', 'dutch', 60),
+(65, 17.5, '2023-07-28 16:00:00', 'chinese', 60),
+(66, 17.5, '2023-07-29 10:00:00', 'english', 60),
+(67, 17.5, '2023-07-29 10:00:00', 'dutch', 60),
+(68, 17.5, '2023-07-29 10:00:00', 'chinese', 60),
+(69, 17.5, '2023-07-29 13:00:00', 'english', 60),
+(70, 17.5, '2023-07-29 13:00:00', 'dutch', 60),
+(71, 17.5, '2023-07-29 13:00:00', 'chinese', 60),
+(72, 17.5, '2023-07-29 16:00:00', 'english', 60),
+(73, 17.5, '2023-07-29 16:00:00', 'dutch', 60),
+(74, 17.5, '2023-07-29 16:00:00', 'chinese', 60);
 
 -- --------------------------------------------------------
 
@@ -189,34 +386,116 @@ CREATE TABLE `event_yummie` (
   `adult_Price` double NOT NULL,
   `kids_Price` double NOT NULL,
   `session_startTime` time(1) NOT NULL,
-  `session_endTime` time(1) NOT NULL
+  `session_endTime` time(1) NOT NULL,
+  `session_date` date DEFAULT NULL,
+  `seatings` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `event_yummie`
 --
 
-INSERT INTO `event_yummie` (`id`, `restaurant_id`, `adult_Price`, `kids_Price`, `session_startTime`, `session_endTime`) VALUES
-(1, 1, 45, 22.5, '17:00:00.0', '19:00:00.0'),
-(2, 1, 45, 22.5, '19:30:00.0', '21:30:00.0'),
-(3, 1, 45, 22.5, '22:00:00.0', '00:00:00.0'),
-(4, 2, 45, 22.5, '18:00:00.0', '19:30:00.0'),
-(5, 2, 45, 22.5, '20:00:00.0', '21:30:00.0'),
-(6, 2, 45, 22.5, '22:00:00.0', '23:30:00.0'),
-(7, 3, 35, 17.5, '17:00:00.0', '18:30:00.0'),
-(8, 3, 35, 17.5, '19:00:00.0', '20:30:00.0'),
-(9, 3, 35, 17.5, '21:00:00.0', '22:30:00.0'),
-(10, 4, 35, 17.5, '17:30:00.0', '19:00:00.0'),
-(11, 4, 35, 17.5, '19:30:00.0', '21:00:00.0'),
-(12, 4, 35, 17.5, '21:30:00.0', '23:00:00.0'),
-(13, 5, 45, 22.5, '17:00:00.0', '19:00:00.0'),
-(14, 5, 45, 22.5, '19:30:00.0', '21:30:00.0'),
-(15, 6, 35, 17.5, '16:30:00.0', '18:00:00.0'),
-(16, 6, 35, 17.5, '18:30:00.0', '20:00:00.0'),
-(17, 6, 35, 17.5, '20:30:00.0', '22:00:00.0'),
-(18, 7, 45, 22.5, '17:30:00.0', '19:00:00.0'),
-(19, 7, 45, 22.5, '19:30:00.0', '21:00:00.0'),
-(20, 7, 45, 22.5, '21:30:00.0', '23:00:00.0');
+INSERT INTO `event_yummie` (`id`, `restaurant_id`, `adult_Price`, `kids_Price`, `session_startTime`, `session_endTime`, `session_date`, `seatings`) VALUES
+(1, 1, 45, 22.5, '17:00:00.0', '19:00:00.0', '2023-07-27', 52),
+(2, 1, 45, 22.5, '19:30:00.0', '21:30:00.0', '2023-07-27', 52),
+(3, 1, 45, 22.5, '22:00:00.0', '00:00:00.0', '2023-07-27', 52),
+(4, 2, 45, 22.5, '18:00:00.0', '19:30:00.0', '2023-07-27', 40),
+(5, 2, 45, 22.5, '20:00:00.0', '21:30:00.0', '2023-07-27', 40),
+(6, 2, 45, 22.5, '22:00:00.0', '23:30:00.0', '2023-07-27', 40),
+(7, 3, 35, 17.5, '17:00:00.0', '18:30:00.0', '2023-07-27', 36),
+(8, 3, 35, 17.5, '19:00:00.0', '20:30:00.0', '2023-07-27', 36),
+(9, 3, 35, 17.5, '21:00:00.0', '22:30:00.0', '2023-07-27', 36),
+(10, 4, 35, 17.5, '17:30:00.0', '19:00:00.0', '2023-07-27', 48),
+(11, 4, 35, 17.5, '19:30:00.0', '21:00:00.0', '2023-07-27', 48),
+(12, 4, 35, 17.5, '21:30:00.0', '23:00:00.0', '2023-07-27', 48),
+(13, 5, 45, 22.5, '17:00:00.0', '19:00:00.0', '2023-07-27', 60),
+(14, 5, 45, 22.5, '19:30:00.0', '21:30:00.0', '2023-07-27', 60),
+(15, 6, 35, 17.5, '16:30:00.0', '18:00:00.0', '2023-07-27', 100),
+(16, 6, 35, 17.5, '18:30:00.0', '20:00:00.0', '2023-07-27', 100),
+(17, 6, 35, 17.5, '20:30:00.0', '22:00:00.0', '2023-07-27', 100),
+(18, 7, 45, 22.5, '17:30:00.0', '19:00:00.0', '2023-07-27', 45),
+(19, 7, 45, 22.5, '19:30:00.0', '21:00:00.0', '2023-07-27', 45),
+(20, 7, 45, 22.5, '21:30:00.0', '23:00:00.0', '2023-07-27', 45),
+(75, 1, 45, 22.5, '17:00:00.0', '19:00:00.0', '2023-07-28', 52),
+(76, 1, 45, 22.5, '17:00:00.0', '19:00:00.0', '2023-07-29', 52),
+(77, 1, 45, 22.5, '17:00:00.0', '19:00:00.0', '2023-07-30', 52),
+(78, 1, 45, 22.5, '17:00:00.0', '19:00:00.0', '2023-07-31', 52),
+(79, 1, 45, 22.5, '19:30:00.0', '21:30:00.0', '2023-07-28', 52),
+(80, 1, 45, 22.5, '19:30:00.0', '21:30:00.0', '2023-07-29', 52),
+(81, 1, 45, 22.5, '19:30:00.0', '21:30:00.0', '2023-07-30', 52),
+(82, 1, 45, 22.5, '19:30:00.0', '21:30:00.0', '2023-07-31', 52),
+(83, 1, 45, 22.5, '22:00:00.0', '00:00:00.0', '2023-07-28', 52),
+(84, 1, 45, 22.5, '22:00:00.0', '00:00:00.0', '2023-07-29', 52),
+(85, 1, 45, 22.5, '22:00:00.0', '00:00:00.0', '2023-07-30', 52),
+(86, 1, 45, 22.5, '22:00:00.0', '00:00:00.0', '2023-07-31', 52),
+(87, 2, 45, 22.5, '18:00:00.0', '19:30:00.0', '2023-07-28', 40),
+(88, 2, 45, 22.5, '18:00:00.0', '19:30:00.0', '2023-07-29', 40),
+(89, 2, 45, 22.5, '18:00:00.0', '19:30:00.0', '2023-07-30', 40),
+(90, 2, 45, 22.5, '18:00:00.0', '19:30:00.0', '2023-07-31', 40),
+(91, 2, 45, 22.5, '20:00:00.0', '21:30:00.0', '2023-07-28', 40),
+(92, 2, 45, 22.5, '20:00:00.0', '21:30:00.0', '2023-07-29', 40),
+(93, 2, 45, 22.5, '20:00:00.0', '21:30:00.0', '2023-07-30', 40),
+(94, 2, 45, 22.5, '20:00:00.0', '21:30:00.0', '2023-07-31', 40),
+(95, 2, 45, 22.5, '22:00:00.0', '23:30:00.0', '2023-07-28', 40),
+(96, 2, 45, 22.5, '22:00:00.0', '23:30:00.0', '2023-07-29', 40),
+(97, 2, 45, 22.5, '22:00:00.0', '23:30:00.0', '2023-07-30', 40),
+(98, 2, 45, 22.5, '22:00:00.0', '23:30:00.0', '2023-07-31', 40),
+(99, 3, 35, 17.5, '17:00:00.0', '18:30:00.0', '2023-07-28', 36),
+(100, 3, 35, 17.5, '17:00:00.0', '18:30:00.0', '2023-07-29', 36),
+(101, 3, 35, 17.5, '17:00:00.0', '18:30:00.0', '2023-07-30', 36),
+(102, 3, 35, 17.5, '17:00:00.0', '18:30:00.0', '2023-07-31', 36),
+(103, 3, 35, 17.5, '19:00:00.0', '20:30:00.0', '2023-07-28', 36),
+(104, 3, 35, 17.5, '19:00:00.0', '20:30:00.0', '2023-07-29', 36),
+(105, 3, 35, 17.5, '19:00:00.0', '20:30:00.0', '2023-07-30', 36),
+(106, 3, 35, 17.5, '19:00:00.0', '20:30:00.0', '2023-07-31', 36),
+(107, 3, 35, 17.5, '21:00:00.0', '22:30:00.0', '2023-07-28', 36),
+(108, 3, 35, 17.5, '21:00:00.0', '22:30:00.0', '2023-07-29', 36),
+(109, 3, 35, 17.5, '21:00:00.0', '22:30:00.0', '2023-07-30', 36),
+(110, 3, 35, 17.5, '21:00:00.0', '22:30:00.0', '2023-07-31', 36),
+(111, 4, 35, 17.5, '17:30:00.0', '19:00:00.0', '2023-07-28', 48),
+(112, 4, 35, 17.5, '17:30:00.0', '19:00:00.0', '2023-07-29', 48),
+(113, 4, 35, 17.5, '17:30:00.0', '19:00:00.0', '2023-07-30', 48),
+(114, 4, 35, 17.5, '17:30:00.0', '19:00:00.0', '2023-07-31', 48),
+(115, 4, 35, 17.5, '19:30:00.0', '21:00:00.0', '2023-07-28', 48),
+(116, 4, 35, 17.5, '19:30:00.0', '21:00:00.0', '2023-07-29', 48),
+(117, 4, 35, 17.5, '19:30:00.0', '21:00:00.0', '2023-07-30', 48),
+(118, 4, 35, 17.5, '19:30:00.0', '21:00:00.0', '2023-07-31', 48),
+(119, 4, 35, 17.5, '21:30:00.0', '23:00:00.0', '2023-07-28', 48),
+(120, 4, 35, 17.5, '21:30:00.0', '23:00:00.0', '2023-07-29', 48),
+(121, 4, 35, 17.5, '21:30:00.0', '23:00:00.0', '2023-07-30', 48),
+(122, 4, 35, 17.5, '21:30:00.0', '23:00:00.0', '2023-07-31', 48),
+(123, 5, 45, 22.5, '17:00:00.0', '19:00:00.0', '2023-07-28', 60),
+(124, 5, 45, 22.5, '17:00:00.0', '19:00:00.0', '2023-07-29', 60),
+(125, 5, 45, 22.5, '17:00:00.0', '19:00:00.0', '2023-07-30', 60),
+(126, 5, 45, 22.5, '17:00:00.0', '19:00:00.0', '2023-07-31', 60),
+(127, 5, 45, 22.5, '19:30:00.0', '21:30:00.0', '2023-07-28', 60),
+(128, 5, 45, 22.5, '19:30:00.0', '21:30:00.0', '2023-07-29', 60),
+(129, 5, 45, 22.5, '19:30:00.0', '21:30:00.0', '2023-07-30', 60),
+(130, 5, 45, 22.5, '19:30:00.0', '21:30:00.0', '2023-07-31', 60),
+(131, 6, 35, 17.5, '16:30:00.0', '18:00:00.0', '2023-07-28', 100),
+(132, 6, 35, 17.5, '16:30:00.0', '18:00:00.0', '2023-07-29', 100),
+(133, 6, 35, 17.5, '16:30:00.0', '18:00:00.0', '2023-07-30', 100),
+(134, 6, 35, 17.5, '16:30:00.0', '18:00:00.0', '2023-07-31', 100),
+(135, 6, 35, 17.5, '18:30:00.0', '20:00:00.0', '2023-07-28', 100),
+(136, 6, 35, 17.5, '18:30:00.0', '20:00:00.0', '2023-07-29', 100),
+(137, 6, 35, 17.5, '18:30:00.0', '20:00:00.0', '2023-07-30', 100),
+(138, 6, 35, 17.5, '18:30:00.0', '20:00:00.0', '2023-07-31', 100),
+(139, 6, 35, 17.5, '20:30:00.0', '22:00:00.0', '2023-07-28', 100),
+(140, 6, 35, 17.5, '20:30:00.0', '22:00:00.0', '2023-07-29', 100),
+(141, 6, 35, 17.5, '20:30:00.0', '22:00:00.0', '2023-07-30', 100),
+(142, 6, 35, 17.5, '20:30:00.0', '22:00:00.0', '2023-07-31', 100),
+(143, 7, 45, 22.5, '17:30:00.0', '19:00:00.0', '2023-07-28', 45),
+(144, 7, 45, 22.5, '17:30:00.0', '19:00:00.0', '2023-07-29', 45),
+(145, 7, 45, 22.5, '17:30:00.0', '19:00:00.0', '2023-07-30', 45),
+(146, 7, 45, 22.5, '17:30:00.0', '19:00:00.0', '2023-07-31', 45),
+(147, 7, 45, 22.5, '19:30:00.0', '21:00:00.0', '2023-07-28', 45),
+(148, 7, 45, 22.5, '19:30:00.0', '21:00:00.0', '2023-07-29', 45),
+(149, 7, 45, 22.5, '19:30:00.0', '21:00:00.0', '2023-07-30', 45),
+(150, 7, 45, 22.5, '19:30:00.0', '21:00:00.0', '2023-07-31', 45),
+(151, 7, 45, 22.5, '21:30:00.0', '23:00:00.0', '2023-07-28', 45),
+(152, 7, 45, 22.5, '21:30:00.0', '23:00:00.0', '2023-07-29', 45),
+(153, 7, 45, 22.5, '21:30:00.0', '23:00:00.0', '2023-07-30', 45),
+(154, 7, 45, 22.5, '21:30:00.0', '23:00:00.0', '2023-07-31', 45);
 
 -- --------------------------------------------------------
 
@@ -260,10 +539,10 @@ CREATE TABLE `page` (
 --
 
 INSERT INTO `page` (`id`, `name`, `title`, `html`) VALUES
-(5, 'dance', 'Dance Event', '<div class=\"pb-[2.5rem] mt-[100px] mb-[150px] lg:w-[1280px] md:w-[100vw] sm:w-[100vw]\" id=\"content-container\">\r\n    <div class=\"grid grid-cols-2 grid-rows-1 h-[600px]\">\r\n      <div class=\"flex flex-col justify-center text-[#F7F7FB] font-[\'Lato\']\">\r\n        <h1 id=\"HeroHeader\" class=\"text-[64px]\">Let\'s Dance</h1>\r\n        <p class=\"w-[80%] text-[20px]\">\r\n          Dance for us is not just an activity, it’s a way of life.\r\n          Come dance the best Dutch produced music out there right here, right now!\r\n        </p>\r\n        <button\r\n          class=\'w-max h-[40px] mt-[15px] text-[#F7F7FB] flex items-center gap-[10px] border-2 border-[#F7F7FB] px-4 py-5 transition ease-in-out cursor-pointer\'>Buy\r\n          Tickets</button>\r\n      </div>\r\n      <div class=\"flex items-center justify-center\">\r\n        <image src=\"/img/danceImg1.png\" class=\"w-[500px]\">\r\n      </div>\r\n    </div>\r\n\r\n    <div id=\"content-wrapper\">\r\n    \r\n    </div>\r\n\r\n  </div>\r\n\r\n  <script src=\"/js/dance/index.js\"></script>\r\n'),
+(5, 'dance', 'Dance Event', '<div class=\"pb-[2.5rem] mt-[100px] mb-[150px] lg:w-[1280px] md:w-[100vw] sm:w-[100vw]\" id=\"content-container\">\n    <div class=\"grid grid-cols-2 grid-rows-1 h-[600px]\">\n      <div class=\"flex flex-col justify-center text-[#F7F7FB] font-[\'Lato\']\">\n        <h1 id=\"HeroHeader\" class=\"text-[64px]\">Let\'s Dance</h1>\n        <p class=\"w-[80%] text-[20px]\">\n          Dance for us is not just an activity, it’s a way of life.\n          Come dance the best Dutch produced music out there right here, right now!\n        </p>\n        <a href=\"/danceTicket\"><button\n          class=\'w-max h-[40px] mt-[15px] text-[#F7F7FB] flex items-center gap-[10px] border-2 border-[#F7F7FB] px-4 py-5 transition ease-in-out cursor-pointer\'>Buy\n          Tickets</button>\n      </div>\n      <div class=\"flex items-center justify-center\">\n        <image src=\"/img/danceImg1.png\" class=\"w-[500px]\">\n      </div>\n    </div>\n\n    <div id=\"content-wrapper\">\n    \n    </div>\n\n  </div>\n\n  <script src=\"/js/dance/index.js\"></script>\n'),
 (6, 'home', 'HomePage', '<div class=\"lg:w-[1280px] md:w-[100vw] sm:w-[100vw] pb-[2.5rem]\" id=\"content-container\"><!-- Festival main screeen, background image -->\r\n<div class=\"w-screen h-[100vh] h-14\"><img alt=\"Image description\" class=\"absolute w-full h-full object-cover z-0\" src=\"/img/festival-homepage.png\" />\r\n<div class=\"absolute top-0 left-0 w-full h-full flex items-center justify-center z-10\">\r\n<p class=\"absolute left-40 pl-20 pb-30 font-extrabold tracking-wide text-violet-700 text-6xl text-center opacity-50 \">T H E F E S T I V A L</p>\r\n\r\n<div class=\"absolute left-20 pl-20 mt-20 text-center text-white\">\r\n<p class=\"font-extrabold tracking-wide text-3xl mt-10 pl-10\">T H E F E S T I V A L</p>\r\n\r\n<p class=\"text-xl pt-5  tracking-wide\">Enjoy the cultural and historical parts of Haarlem with this festival!</p>\r\n</div>\r\n</div>\r\n</div>\r\n<!-- Festival events -->\r\n\r\n<div class=\"flex justify-center w-[100%] flex-col items-center ml-[150px] bg-white z-0\" id=\"events\">&nbsp;</div>\r\n<!-- Festival locations-->\r\n\r\n<div class=\"flex items-center mt-[100px] ml-[200px]\">\r\n<div class=\"flex-none \"><img class=\"absolutew-[100px] h-[100px] mt-[50px] ml-[200px] \" src=\"/img/Vector5.png\" /> <img class=\"absolute w-[100px] h-[100px] mt-[150px] ml-[70px]\" src=\"/img/Vector1.png\" /> <img class=\"absolute w-[100px] h-[100px] mt-[200px] ml-[100px] \" src=\"/img/Vector2.png\" /></div>\r\n\r\n<div class=\"flex-initial ml-[120px] \">\r\n<p class=\"font-extrabold tracking-wide text-3xl \">Locations</p>\r\n<img class=\"w-[700px] h-[500px] mt-10\" src=\"/img/festival-map-locations.png\" /></div>\r\n\r\n<div class=\"flex-none\"><img class=\"absolute w-[100px] h-[100px] mt-[100px] ml-[100px] \" src=\"/img/Vector2.png\" /> <img class=\"absolute w-[100px] h-[100px] mt-[180px] ml-[120px]\" src=\"/img/Vector1.png\" /></div>\r\n</div>\r\n<!-- Festival schedule -->\r\n\r\n<div class=\"flex justify-center mt-[100px] mb-[100px] ml-[600px]\">\r\n<div>\r\n<h1 class=\"absolute font-extrabold text-3xl \">Schedule</h1>\r\n</div>\r\n\r\n<div class=\"w-maxcontent h-[175px] bg-blue-100 drop-shadow-lg flex justify-center rounded-[15px] flex-row gap-16 mt-20 leading-5 p-6 lg:pl-[75px] lg:pr-[75px] md:pl-[20px] sm:flex-row\">\r\n<h2 class=\"font-extrabold mb-2\">Events</h2>\r\n\r\n<ul class=\"list-none flex flex-col\">\r\n	<li class=\"text-sm w-20 pt-6\">Dance!</li>\r\n	<li class=\"text-sm w-20 pt-2\">Yummie!</li>\r\n	<li class=\"text-sm w-40 pt-2\">Stroll through Haarlem</li>\r\n</ul>\r\n\r\n<h2 class=\"font-extrabold mb-2\">Thursday 26 Jul</h2>\r\n\r\n<ul class=\"list-none flex flex-col w-20\">\r\n	<li class=\"text-sm w-20 pt-2\">10:00-16:00</li>\r\n	<li class=\"text-sm w-20 pt-2\">16:30-23:30</li>\r\n	<li class=\"text-sm w-20 pt-2\">n/a</li>\r\n</ul>\r\n\r\n<h2 class=\"font-extrabold mb-2\">Friday 27 Jul</h2>\r\n\r\n<ul class=\"list-none flex flex-col w-20\">\r\n	<li class=\"text-sm w-20 pt-2\">10:00-16:00</li>\r\n	<li class=\"text-sm w-20 pt-2\">16:30-23:30</li>\r\n	<li class=\"text-sm w-20 pt-2\">n/a</li>\r\n</ul>\r\n\r\n<h2 class=\"font-extrabold mb-2\">Saturday 28 Jul</h2>\r\n\r\n<ul class=\"list-none flex flex-col w-20\">\r\n	<li class=\"text-sm w-20 pt-2\">10:00-16:00</li>\r\n	<li class=\"text-sm w-20 pt-2\">16:30-23:30</li>\r\n	<li class=\"text-sm w-20 pt-2\">14:00-00:30</li>\r\n</ul>\r\n\r\n<h2 class=\"font-extrabold mb-2\">Sunday 29 Jul</h2>\r\n\r\n<ul class=\"list-none flex flex-col w-20\">\r\n	<li class=\"text-sm w-20 pt-2\">10:00-16:00</li>\r\n	<li class=\"text-sm w-20 pt-2\">16:30-23:30</li>\r\n	<li class=\"text-sm w-20 pt-2\">14:00-23:00</li>\r\n</ul>\r\n\r\n<h2 class=\"font-extrabold mb-2\">Monday 30 Jul</h2>\r\n\r\n<ul class=\"list-none flex flex-col w-20\">\r\n	<li class=\"text-sm w-20 pt-2\">n/a</li>\r\n	<li class=\"text-sm w-20 pt-2\">16:30-23:30</li>\r\n	<li class=\"text-sm w-20 pt-2\">n/a</li>\r\n</ul>\r\n\r\n<h2 class=\"font-extrabold mb-2\">Tuesday 31 Jul</h2>\r\n\r\n<ul class=\"list-none flex flex-col w-20\">\r\n	<li class=\"text-sm w-20 pt-2\">n/a</li>\r\n	<li class=\"text-sm w-20 pt-2\">16:30-23:30</li>\r\n	<li class=\"text-sm w-20 pt-2\">n/a</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n<script src=\"/js/homepage/index.js\"></script>'),
 (7, 'food', 'Yummie! Event', '<div class=\"grid justify-items-center\" id=\"content-container\">\r\n<div class=\"pt-[150px] pb-[50px] grid grid-cols-2 ml-[150px]\" id=\"introSection\">\r\n<div id=\"introduction\">\r\n<h1 class=\"text-[42px] font-bold\"><span class=\"text-[#42BFDD]\">Yummie!</span> Food Event</h1>\r\n\r\n<p class=\"text-2xl\">27 July - 31 July</p>\r\n\r\n<p class=\"text-base w-[700px] pt-[25px]\">Welcome to the Haarlem Food Festival! Come and join us for an amazing culinary experience. This event is a celebration of the culinary delights that the Netherlands has to offer, showcasing different cuisines and the talented chefs who prepare it.<br />\r\n<br />\r\nWe look forward to seeing you there!</p>\r\n\r\n<p class=\"text-sm text-[#656262] w-[300px] pt-[5px]\">** &euro;10,- deposit pp. and mandatory reservation. Deposit will be deducted upon payment.**</p>\r\n</div>\r\n<img alt=\"circleFoodImage\" class=\"w-[400px] h-[400px] ml-[180px]\" src=\"/img/circleFoodImage.png\" /></div>\r\n\r\n<div class=\"grid justify-center w-[100%] flex-col ml-[500px]\" id=\"restaurants\">&nbsp;</div>\r\n</div>\r\n<script src=\"/js/food/index.js\"></script>'),
-(8, 'tour', 'Haarlem Tour', ' <div class=\"lg:w-[1280px] md:w-[100vw] sm:w-[100vw] mt-[100px]\" id=\"content-container\">\r\n        <div class=\"mt-[100px]\" id=\"introSection\">\r\n            <h1 class=\"text-[36px] font-bold w-[600px]\">Come join us on a stroll through <span class=\"text-[#42BFDD]\">Haarlem’s</span> historic city centre</h1>\r\n            <p class=\"text-xl w-[600px] mt-[20px]\">Take the tour through Haarlem with one of our expert guides, and discover the city’s historic sites.</p>\r\n        </div>\r\n        <div class=\"grid grid-cols-3 mt-[100px] \">\r\n            <img class=\"w-[900px] h-[300px] col-span-2\" src=\"/img/tourImg1.png\">\r\n            <div class=\"col-span-1 ml-[80px]\" id=\"buyTicketsSection1\">\r\n                <h1 class=\"text-[36px] mb-[10px] mt-[20px]\">Buy Tickets</h1>\r\n                <p class=\"mb-[10px]\">Personal tickets €17,50. <br> Family ticket(max 4 participants) €60,00. <br> Date: 26-29 July.</p>\r\n                <button class=\"bg-[#42BFDD] text-white text-[24px] font-bold py-[10px] px-[20px] mt-[20px] rounded-[10px]\">Buy Tickets</button>\r\n            </div>\r\n        </div>\r\n        <div class=\"grid grid-cols-5 mt-[100px] gap-[50px]\" id=\"mapSection\">\r\n            <div class=\"col-span-3\">\r\n                <h1 class=\"text-[36px] font-bold\">Have a look at the route we will be following</h1>\r\n                <img class=\"w-[600px] h-[400px] mt-[40px] ml-[60px]\" src=\"/img/tourRoute.png\">\r\n                <a href=\"/tour/tourOverview\"><button class=\"bg-[#42BFDD] text-white text-[24px] font-bold py-[10px] px-[20px] mt-[20px] rounded-[10px] mt-[40px] ml-[110px]\">View more info on the route and location</button></a>\r\n            </div>\r\n            <img class=\"w-[500px] h-[600px] col-span-2\" src=\"/img/tourImg2.png\">\r\n        </div>\r\n        <div class=\"grid grid-cols-5 mt-[100px]\" id=\"dateSection\">\r\n            <div class=\"col-span-3\" id=\"date\">\r\n                <h1 class=\"text-[36px] font-bold\">Dates</h1>\r\n                <p class=\"text-xl mt-[20px] w-[700px]\">There are multiple tours taking place from 26-29 July. Tours are given in English, Dutch, and French at a frequency of three timeslots per day these timeslots are: 10:00, 13:00, and 16:00. We expect the tour to take around 120 to 150 minutes.</p>\r\n                <div class=\"bg-[#42BFDD] rounded-[10px] w-[700px] h-[200px] mt-[50px]\" id=\"schedule\">\r\n                    <h2 class=\"ml-[20px] pt-[20px] text-[24px] text-white\">Schedule</h2>              \r\n                    <div class=\"grid grid-cols-3 mt-[20px]  bg-[#FFFFFF] pl-[100px]\">\r\n                        <div class=\"col-span-1\">\r\n                            <p>26th July - 29th July 2023</p>\r\n                        </div>\r\n                        <div class=\"col-span-1\">\r\n                            <p class=\"ml-[20px]\">First Timeslot</p>\r\n                            <p class=\"ml-[20px]\">Second Timeslot</p>\r\n                            <p class=\"ml-[20px]\">Third Tiomeslot</p>\r\n                        </div>\r\n                        <div class=\"col-span-1\">\r\n                        <p class=\"ml-[20px]\">10:00</p>\r\n                            <p class=\"ml-[20px]\">13:00</p>\r\n                            <p class=\"ml-[20px]\">16:00</p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-span-2 ml-[50px]\" id=\"buyTicketsSection2\">\r\n                <h1 class=\"text-[36px] mb-[10px]\">Buy Tickets</h1>\r\n                <p class=\"mb-[10px]\">Personal tickets €17,50. <br> Family ticket(max 4 participants) €60,00. <br> Date: 26-29 July.</p>\r\n                <button class=\"bg-[#42BFDD] text-white text-[24px] font-bold py-[10px] px-[20px] mt-[20px] rounded-[10px]\">Buy Tickets</button>\r\n            </div>\r\n        </div>\r\n        <div class=\"mt-[100px]\" id=\"kidsAppSection\"> \r\n            <h1 class=\"text-[36px] font-bold\">Open to ages 12 and up</h1>\r\n            <p class=\"w-[700px] mt-[20px]\">If you are with children you can participate in Teylers museum special event. Discover professor Teylers secret using an interactive application on your mobile. <span class=\"text-[#42BFDD]\">Download the app on the app store.</span></p>\r\n        </div>\r\n        <div class=\"mt-[50px] grid grid-cols-3 mb-[100px]\">\r\n            <img class=\"w-[1000px] h-[700px] col-span-2\" src=\"/img/appPreview.png\">\r\n            <img class=\"w-[300px] h-[300px] mt-[300px] ml-[50px] col-span-1\" src=\"/img/downloadApp.png\">\r\n        </div>\r\n    </div>'),
+(8, 'tour', 'Haarlem Tour', ' <div class=\"lg:w-[1280px] md:w-[100vw] sm:w-[100vw] mt-[100px]\" id=\"content-container\">\n        <div class=\"mt-[100px]\" id=\"introSection\">\n            <h1 class=\"text-[36px] font-bold w-[600px]\">Come join us on a stroll through <span class=\"text-[#42BFDD]\">Haarlem’s</span> historic city centre</h1>\n            <p class=\"text-xl w-[600px] mt-[20px]\">Take the tour through Haarlem with one of our expert guides, and discover the city’s historic sites.</p>\n        </div>\n        <div class=\"grid grid-cols-3 mt-[100px] \">\n            <img class=\"w-[900px] h-[300px] col-span-2\" src=\"/img/tourImg1.png\">\n            <div class=\"col-span-1 ml-[80px]\" id=\"buyTicketsSection1\">\n                <h1 class=\"text-[36px] mb-[10px] mt-[20px]\">Buy Tickets</h1>\n                <p class=\"mb-[10px]\">Personal tickets €17,50. <br> Family ticket(max 4 participants) €60,00. <br> Date: 26-29 July.</p>\n                <a href=\"/tourTicket\"><button class=\"bg-[#42BFDD] text-white text-[24px] font-bold py-[10px] px-[20px] mt-[20px] rounded-[10px]\">Buy Tickets</button>\n            </div>\n        </div>\n        <div class=\"grid grid-cols-5 mt-[100px] gap-[50px]\" id=\"mapSection\">\n            <div class=\"col-span-3\">\n                <h1 class=\"text-[36px] font-bold\">Have a look at the route we will be following</h1>\n                <img class=\"w-[600px] h-[400px] mt-[40px] ml-[60px]\" src=\"/img/tourRoute.png\">\n                <a href=\"/tour/tourOverview\"><button class=\"bg-[#42BFDD] text-white text-[24px] font-bold py-[10px] px-[20px] mt-[20px] rounded-[10px] mt-[40px] ml-[110px]\">View more info on the route and location</button></a>\n            </div>\n            <img class=\"w-[500px] h-[600px] col-span-2\" src=\"/img/tourImg2.png\">\n        </div>\n        <div class=\"grid grid-cols-5 mt-[100px]\" id=\"dateSection\">\n            <div class=\"col-span-3\" id=\"date\">\n                <h1 class=\"text-[36px] font-bold\">Dates</h1>\n                <p class=\"text-xl mt-[20px] w-[700px]\">There are multiple tours taking place from 26-29 July. Tours are given in English, Dutch, and French at a frequency of three timeslots per day these timeslots are: 10:00, 13:00, and 16:00. We expect the tour to take around 120 to 150 minutes.</p>\n                <div class=\"bg-[#42BFDD] rounded-[10px] w-[700px] h-[200px] mt-[50px]\" id=\"schedule\">\n                    <h2 class=\"ml-[20px] pt-[20px] text-[24px] text-white\">Schedule</h2>              \n                    <div class=\"grid grid-cols-3 mt-[20px]  bg-[#FFFFFF] pl-[100px]\">\n                        <div class=\"col-span-1\">\n                            <p>26th July - 29th July 2023</p>\n                        </div>\n                        <div class=\"col-span-1\">\n                            <p class=\"ml-[20px]\">First Timeslot</p>\n                            <p class=\"ml-[20px]\">Second Timeslot</p>\n                            <p class=\"ml-[20px]\">Third Tiomeslot</p>\n                        </div>\n                        <div class=\"col-span-1\">\n                        <p class=\"ml-[20px]\">10:00</p>\n                            <p class=\"ml-[20px]\">13:00</p>\n                            <p class=\"ml-[20px]\">16:00</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-span-2 ml-[50px]\" id=\"buyTicketsSection2\">\n                <h1 class=\"text-[36px] mb-[10px]\">Buy Tickets</h1>\n                <p class=\"mb-[10px]\">Personal tickets €17,50. <br> Family ticket(max 4 participants) €60,00. <br> Date: 26-29 July.</p>\n                <a href=\"/tourTicket\"><button class=\"bg-[#42BFDD] text-white text-[24px] font-bold py-[10px] px-[20px] mt-[20px] rounded-[10px]\">Buy Tickets</button>\n            </div>\n        </div>\n        <div class=\"mt-[100px]\" id=\"kidsAppSection\"> \n            <h1 class=\"text-[36px] font-bold\">Open to ages 12 and up</h1>\n            <p class=\"w-[700px] mt-[20px]\">If you are with children you can participate in Teylers museum special event. Discover professor Teylers secret using an interactive application on your mobile. <span class=\"text-[#42BFDD]\">Download the app on the app store.</span></p>\n        </div>\n        <div class=\"mt-[50px] grid grid-cols-3 mb-[100px]\">\n            <img class=\"w-[1000px] h-[700px] col-span-2\" src=\"/img/appPreview.png\">\n            <img class=\"w-[300px] h-[300px] mt-[300px] ml-[50px] col-span-1\" src=\"/img/downloadApp.png\">\n        </div>\n    </div>'),
 (9, 'tourOverview', 'Tour OverView', '<div class=\"lg:w-[1280px] md:w-[100vw] sm:w-[100vw] mt-[100px] mb-[100px]\" id=\"content-container\">\r\n        <h1 class=\"text-[36px] font-bold mt-[100px]\">Haarlem Tour Route</h1>       \r\n               \r\n        <div id=content-wrapper>\r\n            \r\n        </div>\r\n    </div>\r\n\r\n    <script src=\"/js/tour/tourOverview.js\"></script>'),
 (23, 'aa', 'AA', '<p>aa</p>\r\n');
 
@@ -282,6 +561,33 @@ CREATE TABLE `personal_program` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reservation`
+--
+
+CREATE TABLE `reservation` (
+  `uuid` varchar(255) NOT NULL,
+  `session_id` int(6) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `adults` int(4) NOT NULL,
+  `kids` int(4) NOT NULL,
+  `comment` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`uuid`, `session_id`, `status`, `adults`, `kids`, `comment`) VALUES
+('003fb4d2-102f-4841-8d5f-6a6f75881e92', 140, 1, 1, 0, ''),
+('118911aa-0ee5-11ee-947d-0242ac140004', 2, 1, 11, 11, 'Gluten Free'),
+('138f2431-8ff6-413a-ad35-4dc640785282', 75, 1, 1, 0, ''),
+('25214241-82fd-400a-af09-a73ef9ae7d72', 2, 1, 1, 0, ''),
+('2b787bf1-2dfd-402b-9a0d-ab031afa301d', 1, 1, 1, 0, ''),
+('32bb33f8-0ee5-11ee-947d-0242ac140004', 3, 1, 1, 1, 'Allergic seafood');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `restaurant`
 --
 
@@ -294,7 +600,6 @@ CREATE TABLE `restaurant` (
   `description` text DEFAULT NULL,
   `address` varchar(1000) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
-  `capacity` int(11) NOT NULL,
   `imagePath` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -302,14 +607,14 @@ CREATE TABLE `restaurant` (
 -- Dumping data for table `restaurant`
 --
 
-INSERT INTO `restaurant` (`id`, `name`, `category`, `star`, `michelinStar`, `description`, `address`, `phone_number`, `capacity`, `imagePath`) VALUES
-(1, 'Ratatouille', 'French, Seafood, Eurpean', 4.7, 1, 'Ratatouille is one of Haarlem’s only Michelin starred restaurant. Located in the city centre, and owned by a talented chef Jozua Jaring, the restaurant specialises in creating delicious French dishes using fresh, local ingredients. The menu features a wide variety of classic and modern takes on French favourites Offering indoor and outdoor seating, Ratatouille appeals to a broad range of tastes and is sure to please a wide variety of diners.', 'Spaarne 96, 2011 CL Haarlem', '+31 23 542 7270', 52, '/img/4.7Rating.png:/img/ratatouilleImg1.png:/img/ratatouilleImg2.png:/img/ratatouilleImg3.png:\r\n/img/detailRatatouilleImg1.png:\r\n/img/detailRatatouilleImg2.png:\r\n/img/detailRatatouilleImg3.png:\r\n/img/detailRatatouilleImg4.png:\r\n/img/detailRatatouilleImg5.png:'),
-(2, 'Mr&Mrs', 'Dutch, Seafood, European', 4.7, 0, 'Mr&Mrs is nice little restaurant. Located in Haarlem, and owned by a lovely couple, the restaurant specialises in creating delicious Dutch dishes using fresh, local ingredients. The menu features a wide variety of classic and modern takes on Dutch favourites Offering indoor and outdoor seating, Mr&Mrs appeals to a broad range of tastes and is sure to please a wide variety of diners.', 'Lange Veerstraat 4, 2011 DB Haarlem', '+31 23 531 5935', 40, '/img/4.7Rating.png:/img/mr&mrsImg1.png:/img/mr&mrsImg2.png:/img/mr&mrsImg3.png:/img/mr&mrsImg3.png:/img/mr&mrsImg2.png:/img/mr&mrsImg4.png:/img/mr&mrsImg6.png:/img/mr&mrsImg5.png'),
-(3, 'Specktakel', 'European, International, Asian', 4.5, 0, 'Specktakel is a unique World Restaurant centrally located in the heart of Haarlem. With a special covered courtyard and a terrace with a view of the historic Vleeshal and the centuries-old Bavo church. In the world kitchen, true works of art are created where every sense is stimulated.\r\n\r\nSpecktakel is all about the experience, an experience that we create together, each in his or her own role. The world wines are selected with care, so that the wine is in harmony with the aromas and spices of the dish.\r\nThe colours, aromas and flavors create a wonderful interplay that can be talked about…', 'Klokhuisplein 9, 2011 HK Haarlem', '+31 023 512 3910', 60, '/img/4.5Rating.png:/img/specktakelImg1.png:/img/specktakelImg2.png:/img/specktakelImg3.png:/img/specktakelImg3.png:/img/specktakelImg4.png:/img/specktakelImg2.png:/img/specktakelImg1.png:/img/specktakelImg5.png:'),
-(4, 'Toujours', 'Dutch, Seafood, European', 4.4, 0, 'The wine is ready, the beer tap is running at full speed again and the cocktails are already being shaken. Sit comfortably on our terrace with a rug and patio heaters. And all that in combination with delicious dishes that we have on the menu. Let us spoil you with our appetizers & finger food. And if you want to go ALL OUT, then one of our signature dishes is perfect for you!', 'Oude Groenmarkt 10-12, 2011 HL Haarlem', '+31 023 532 1699', 48, '/img/4.4Rating.png:/img/toujoursImg1.png:/img/toujoursImg2.png:/img/toujoursImg3.png:/img/toujoursImg3.png:/img/toujoursImg2.png:/img/toujoursImg1.png:/img/toujoursImg4.png:/img/toujoursImg5.png:'),
-(5, 'ML', 'Dutch, Seafood, European', 4.1, 1, 'ML has been housing, in the beautiful, monumental building at Klokhuisplein since 2018. A place where you can eat, drink, meet and sleep.Restaurant ML is located in the courtyard of the historic printer Johan Enschedé and in the old style room of the former home of the Enschedé family. The decor is sleek and modern and includes a fine backdrop for the culinary sensations presented by chef Mark Gratama and his kitchen team. In 2021, restaurant ML is once again awarded with a Michelin star!', 'Klokhuisplein 9, 2011 HK Haarlem', '+31 023 512 3910', 60, '/img/4.1Rating.png:/img/mlImg1.png:/img/mlImg2.png:/img/mlImg3.png:\r\n/img/mlImg4.png:/img/mlImg2.png:\r\n/img/mlImg3.png:/img/mlImg1.png:\r\n/img/mlImg5.png:'),
-(6, 'Grand Cafe Brinkmann', 'Modern, Dutch, European', 4.1, 0, 'Brinkmann is a well-known grand café that has been located on the Grote Markt in Haarlem since 1881. In the thirties of the twentieth century, the business had grown into a large complex of entertainment venues. At the end of the seventies it made way for the Brinkmannpassage. Brinkmann has continued in a smaller form as a grand café. Come and have a taste of History.', 'Grote Markt 13, 2011 RC Haarlem', '+31 023 532 3111', 100, '/img/4.4Rating.png:/img/grandcafebrinkmannImg1.png:\r\n/img/grandcafebrinkmannImg2.png:\r\n/img/grandcafebrinkmannImg3.png:\r\n/img/grandcafebrinkmannImg3.png:\r\n/img/grandcafebrinkmannImg2.png:\r\n/img/grandcafebrinkmannImg1.png:\r\n/img/grandcafebrinkmannImg4.png:\r\n/img/grandcafebrinkmannImg5.png:'),
-(7, 'Fris', 'Dutch, French, European', 4.1, 1, 'Fris is One of the michelin starred restaurants and offer you class and great food. Original textures and product combinations ensure tasty flavors and a pleasant mouthfeel. And with a wines round off the story nicely. A unique experience and totally recommended.', 'Twijnderslaan 7, 2012 BG Haarlem', '+31 023 531 0717', 45, '/img/4.1Rating.png:/img/frisImg1.png:/img/frisImg2.png:/img/frisImg3.png:\r\n/img/frisImg5.png:/img/frisImg2.png:/img/frisImg3.png:/img/frisImg1.png:/img/frisImg6.png:');
+INSERT INTO `restaurant` (`id`, `name`, `category`, `star`, `michelinStar`, `description`, `address`, `phone_number`, `imagePath`) VALUES
+(1, 'Ratatouille', 'French, Seafood, Eurpean', 4.7, 1, 'Ratatouille is one of Haarlem’s only Michelin starred restaurant. Located in the city centre, and owned by a talented chef Jozua Jaring, the restaurant specialises in creating delicious French dishes using fresh, local ingredients. The menu features a wide variety of classic and modern takes on French favourites Offering indoor and outdoor seating, Ratatouille appeals to a broad range of tastes and is sure to please a wide variety of diners.', 'Spaarne 96, 2011 CL Haarlem', '+31 23 542 7271', '/img/4.7Rating.png:/img/ratatouilleImg1.png:/img/ratatouilleImg2.png:/img/ratatouilleImg3.png:\r\n/img/detailRatatouilleImg1.png:\r\n/img/detailRatatouilleImg2.png:\r\n/img/detailRatatouilleImg3.png:\r\n/img/detailRatatouilleImg4.png:\r\n/img/detailRatatouilleImg5.png:'),
+(2, 'Mr&Mrs', 'Dutch, Seafood, European', 4.7, 0, 'Mr&Mrs is nice little restaurant. Located in Haarlem, and owned by a lovely couple, the restaurant specialises in creating delicious Dutch dishes using fresh, local ingredients. The menu features a wide variety of classic and modern takes on Dutch favourites Offering indoor and outdoor seating, Mr&Mrs appeals to a broad range of tastes and is sure to please a wide variety of diners.', 'Lange Veerstraat 4, 2011 DB Haarlem', '+31 23 531 5935', '/img/4.7Rating.png:/img/mr&mrsImg1.png:/img/mr&mrsImg2.png:/img/mr&mrsImg3.png:/img/mr&mrsImg3.png:/img/mr&mrsImg2.png:/img/mr&mrsImg4.png:/img/mr&mrsImg6.png:/img/mr&mrsImg5.png'),
+(3, 'Specktakel', 'European, International, Asian', 4.5, 0, 'Specktakel is a unique World Restaurant centrally located in the heart of Haarlem. With a special covered courtyard and a terrace with a view of the historic Vleeshal and the centuries-old Bavo church. In the world kitchen, true works of art are created where every sense is stimulated.\r\n\r\nSpecktakel is all about the experience, an experience that we create together, each in his or her own role. The world wines are selected with care, so that the wine is in harmony with the aromas and spices of the dish.\r\nThe colours, aromas and flavors create a wonderful interplay that can be talked about…', 'Klokhuisplein 9, 2011 HK Haarlem', '+31 023 512 3910', '/img/4.5Rating.png:/img/specktakelImg1.png:/img/specktakelImg2.png:/img/specktakelImg3.png:/img/specktakelImg3.png:/img/specktakelImg4.png:/img/specktakelImg2.png:/img/specktakelImg1.png:/img/specktakelImg5.png:'),
+(4, 'Toujours', 'Dutch, Seafood, European', 4.4, 0, 'The wine is ready, the beer tap is running at full speed again and the cocktails are already being shaken. Sit comfortably on our terrace with a rug and patio heaters. And all that in combination with delicious dishes that we have on the menu. Let us spoil you with our appetizers & finger food. And if you want to go ALL OUT, then one of our signature dishes is perfect for you!', 'Oude Groenmarkt 10-12, 2011 HL Haarlem', '+31 023 532 1699', '/img/4.4Rating.png:/img/toujoursImg1.png:/img/toujoursImg2.png:/img/toujoursImg3.png:/img/toujoursImg3.png:/img/toujoursImg2.png:/img/toujoursImg1.png:/img/toujoursImg4.png:/img/toujoursImg5.png:'),
+(5, 'ML', 'Dutch, Seafood, European', 4.1, 1, 'ML has been housing, in the beautiful, monumental building at Klokhuisplein since 2018. A place where you can eat, drink, meet and sleep.Restaurant ML is located in the courtyard of the historic printer Johan Enschedé and in the old style room of the former home of the Enschedé family. The decor is sleek and modern and includes a fine backdrop for the culinary sensations presented by chef Mark Gratama and his kitchen team. In 2021, restaurant ML is once again awarded with a Michelin star!', 'Klokhuisplein 9, 2011 HK Haarlem', '+31 023 512 3910', '/img/4.1Rating.png:/img/mlImg1.png:/img/mlImg2.png:/img/mlImg3.png:\r\n/img/mlImg4.png:/img/mlImg2.png:\r\n/img/mlImg3.png:/img/mlImg1.png:\r\n/img/mlImg5.png:'),
+(6, 'Grand Cafe Brinkmann', 'Modern, Dutch, European', 4.1, 0, 'Brinkmann is a well-known grand café that has been located on the Grote Markt in Haarlem since 1881. In the thirties of the twentieth century, the business had grown into a large complex of entertainment venues. At the end of the seventies it made way for the Brinkmannpassage. Brinkmann has continued in a smaller form as a grand café. Come and have a taste of History.', 'Grote Markt 13, 2011 RC Haarlem', '+31 023 532 3111', '/img/4.4Rating.png:/img/grandcafebrinkmannImg1.png:\r\n/img/grandcafebrinkmannImg2.png:\r\n/img/grandcafebrinkmannImg3.png:\r\n/img/grandcafebrinkmannImg3.png:\r\n/img/grandcafebrinkmannImg2.png:\r\n/img/grandcafebrinkmannImg1.png:\r\n/img/grandcafebrinkmannImg4.png:\r\n/img/grandcafebrinkmannImg5.png:'),
+(7, 'Fris', 'Dutch, French, European', 4.1, 1, 'Fris is One of the michelin starred restaurants and offer you class and great food. Original textures and product combinations ensure tasty flavors and a pleasant mouthfeel. And with a wines round off the story nicely. A unique experience and totally recommended.', 'Twijnderslaan 7, 2012 BG Haarlem', '+31 023 531 0717', '/img/4.1Rating.png:/img/frisImg1.png:/img/frisImg2.png:/img/frisImg3.png:\r\n/img/frisImg5.png:/img/frisImg2.png:/img/frisImg3.png:/img/frisImg1.png:/img/frisImg6.png:');
 
 -- --------------------------------------------------------
 
@@ -361,10 +666,12 @@ INSERT INTO `stroll_location` (`id`, `name`, `title`, `description`, `address`, 
 CREATE TABLE `ticket` (
   `uuid` uuid NOT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `event_id` int(11) NOT NULL,
+  `event_id` int(11) DEFAULT NULL,
   `price` double DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `exp_date` datetime DEFAULT NULL
+  `exp_date` datetime DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `isAllAccess` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -392,7 +699,8 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `register_da
 (3, 'employee', 'employee@gmail.com', '5d7845ac6ee7cfffafc5fe5f35cf666d', 1, NULL),
 (4, 'Test', 'test@gmail.com', '5d7845ac6ee7cfffafc5fe5f35cf666d', 0, NULL),
 (6, 'billy', 'billy@gmail.com', '202cb962ac59075b964b07152d234b70', 0, '2023-04-05'),
-(8, 'JasonXie', 'jasonxie62@gmail.com', '5d7845ac6ee7cfffafc5fe5f35cf666d', 0, '2023-04-09');
+(8, 'JasonXie', 'jasonxie62@gmail.com', '5d7845ac6ee7cfffafc5fe5f35cf666d', 0, '2023-04-09'),
+(9, 'cody', 'codykoning1@gmail.com', '5d7845ac6ee7cfffafc5fe5f35cf666d', 0, '2023-06-21');
 
 --
 -- Indexes for dumped tables
@@ -464,6 +772,13 @@ ALTER TABLE `personal_program`
   ADD KEY `event_id` (`event_id`);
 
 --
+-- Indexes for table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`uuid`) USING BTREE,
+  ADD KEY `session` (`session_id`) USING BTREE;
+
+--
 -- Indexes for table `restaurant`
 --
 ALTER TABLE `restaurant`
@@ -486,7 +801,7 @@ ALTER TABLE `stroll_location`
 -- Indexes for table `ticket`
 --
 ALTER TABLE `ticket`
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`uuid`);
 
 --
 -- Indexes for table `users`
@@ -508,31 +823,31 @@ ALTER TABLE `API_KEYS`
 -- AUTO_INCREMENT for table `artist`
 --
 ALTER TABLE `artist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `dance_location`
 --
 ALTER TABLE `dance_location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
 
 --
 -- AUTO_INCREMENT for table `event_edm`
 --
 ALTER TABLE `event_edm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `event_yummie`
 --
 ALTER TABLE `event_yummie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
 
 --
 -- AUTO_INCREMENT for table `page`
@@ -544,7 +859,7 @@ ALTER TABLE `page`
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `stroll_location`
@@ -556,7 +871,7 @@ ALTER TABLE `stroll_location`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -574,19 +889,23 @@ ALTER TABLE `artist_event_edm`
 --
 ALTER TABLE `event_edm`
   ADD CONSTRAINT `event_edm_ibfk_1` FOREIGN KEY (`venue`) REFERENCES `dance_location` (`id`),
-  ADD CONSTRAINT `event_edm_ibfk_3` FOREIGN KEY (`artist_id`) REFERENCES `artist` (`id`);
+  ADD CONSTRAINT `event_edm_ibfk_3` FOREIGN KEY (`artist_id`) REFERENCES `artist` (`id`),
+  ADD CONSTRAINT `event_edm_ibfk_4` FOREIGN KEY (`id`) REFERENCES `events` (`id`);
 
 --
 -- Constraints for table `event_stroll`
 --
 ALTER TABLE `event_stroll`
-  ADD CONSTRAINT `event_stroll_ibfk_1` FOREIGN KEY (`id`) REFERENCES `events` (`id`);
+  ADD CONSTRAINT `event_stroll_ibfk_1` FOREIGN KEY (`id`) REFERENCES `events` (`id`),
+  ADD CONSTRAINT `event_stroll_ibfk_2` FOREIGN KEY (`id`) REFERENCES `events` (`id`);
 
 --
 -- Constraints for table `event_yummie`
 --
 ALTER TABLE `event_yummie`
-  ADD CONSTRAINT `event_yummie_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`id`);
+  ADD CONSTRAINT `event_yummie_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`id`),
+  ADD CONSTRAINT `event_yummie_ibfk_2` FOREIGN KEY (`id`) REFERENCES `events` (`id`),
+  ADD CONSTRAINT `event_yummie_ibfk_3` FOREIGN KEY (`id`) REFERENCES `events` (`id`);
 
 --
 -- Constraints for table `personal_program`
@@ -601,12 +920,6 @@ ALTER TABLE `personal_program`
 ALTER TABLE `route`
   ADD CONSTRAINT `route_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `stroll_location` (`id`),
   ADD CONSTRAINT `route_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `event_stroll` (`id`);
-
---
--- Constraints for table `ticket`
---
-ALTER TABLE `ticket`
-  ADD CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

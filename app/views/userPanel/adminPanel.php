@@ -77,6 +77,9 @@
                     <li>
                         <button onclick="loadYummieData(`restaurantSessions`)" class="block px-4 py-2 dark:hover:text-[#121212]">sessions</button>
                     </li>
+                    <li>
+                        <button onclick="loadYummieData(`reservations`)" class="block px-4 py-2 dark:hover:text-[#121212]">reservations</button>
+                    </li>
                 </ul>
             </ul>
 
@@ -177,8 +180,7 @@
                         </select>
                         <input type="text" id="restaurantAddress" placeholder="address" required />
                         <input type="text" id="restaurantPhoneNumber" placeholder="phone number" required />
-                        <input type="number" min="0" id="restaurantCapacity" placeholder="Capacity" required />
-                        <input id="restaurantFile" type="file" multiple="multiple" title=" " class="col-span-2" />
+                        <input id="restaurantFile" type="file" multiple="multiple" class="col-span-2" />
                         <textarea class="col-span-5" id="restaurantDescription" placeholder="description" required></textarea>
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="insertRestaurant()">Add restaurants</button>
                     </div>
@@ -187,15 +189,25 @@
                 </div>
                 <div id="restaurantSessionSubPane" class="hidden">
                     <div action="" class="bg-white p-2 rounded-md grid grid-cols-5 relative gap-4 text-center mb-10">
+                        <label>Restaurant</label>
+                        <label>Adult price</label>
+                        <label>Kids price</label>
+                        <label>Start time</label>
+                        <label>End time</label>
                         <select id="sessionRestaurant" required></select>
                         <input id="sessionRestaurantAdultPrice" type="number" step="0.50" min="0" placeholder="Adult price" required />
                         <input id="sessionRestaurantKidsPrice" type="number" step="0.50" min="0" placeholder="Kids price" required />
                         <input type="time" id="sessionRestaurantStartTime" placeholder="Start time" required />
                         <input type="time" id="sessionRestaurantEndTime" placeholder="End time" required />
-
+                        <input type="date" id="sessionRestaurantDate" placeholder="Date" required />
+                        <input type="number" min="0" id="sessionRestaurantSeatings" placeholder="Seatings" required></input>
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="insertRestaurantSession()">Add sessions</button>
                     </div>
                     <div class="flex flex-col gap-4 pb-5" id="contentRestaurantSessionWrapper">
+                    </div>
+                </div>
+                <div id="restaurantReservationSubPane" class="hidden">
+                    <div class="flex flex-col gap-4 pb-5" id="contentRestaurantReservationWrapper">
                     </div>
                 </div>
             </div>
@@ -203,9 +215,19 @@
     </div>
     </div>
 
-    <script src="./js/userPanel/admin.js"></script>
+    <script src="./js/userPanel/user_management.js"></script>
+    <script src="./js/userPanel/yummie_management.js"></script>
+    <script src="./js/userPanel/dance_management.js"></script>
+    <script src="./js/userPanel/general.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 
 </body>
+
+<style>
+    label {
+        font-size: 18px;
+        font-weight: medium;
+    }
+</style>
 
 </html>

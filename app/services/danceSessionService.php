@@ -29,4 +29,8 @@ class DanceSessionService
   public function delete_SessionById($id){
     $this->repo->delete_SessionById($id);
   }
+
+  public function updateTicketCountByEventid($id){
+    $this->repo->updateTicketCountByEventId($id);
+  }
 }

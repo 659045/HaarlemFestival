@@ -6,7 +6,7 @@ class RestaurantRepository extends Repository
   public function get_AllRestaurants()
   {
     try {
-      $stmt = $this->conn->prepare("SELECT id, name, category, star, michelinStar, description, address, phone_number, capacity, imagePath FROM restaurant");
+      $stmt = $this->conn->prepare("SELECT id, name, category, star, michelinStar, description, address, phone_number, imagePath FROM restaurant");
       $stmt->execute();
 
       $stmt->setFetchMode(PDO::FETCH_CLASS, 'Restaurant');
@@ -20,7 +20,7 @@ class RestaurantRepository extends Repository
   public function get_RestaurantById($id)
   {
     try {
-      $stmt = $this->conn->prepare("SELECT id, name, category, star, michelinStar, description, address, phone_number, capacity, imagePath FROM restaurant WHERE id = :id");
+      $stmt = $this->conn->prepare("SELECT id, name, category, star, michelinStar, description, address, phone_number, imagePath FROM restaurant WHERE id = :id");
       $stmt->bindParam(':id', $id);
       $stmt->execute();
 
@@ -32,10 +32,10 @@ class RestaurantRepository extends Repository
     }
   }
 
-  public function edit_Restaurant($id, $name, $category, $star, $michelinStar, $description, $address, $phone_number, $capacity)
+  public function edit_Restaurant($id, $name, $category, $star, $michelinStar, $description, $address, $phone_number)
   {
     try {
-      $stmt = $this->conn->prepare("UPDATE restaurant SET name = :name, category = :category, star = :star, michelinStar = :michelinStar, description = :description, address = :address, phone_number = :phone_number, capacity = :capacity WHERE id = :id");
+      $stmt = $this->conn->prepare("UPDATE restaurant SET name = :name, category = :category, star = :star, michelinStar = :michelinStar, description = :description, address = :address, phone_number = :phone_number WHERE id = :id");
       $stmt->bindParam(':id', $id);
       $stmt->bindParam(':name', $name);
       $stmt->bindParam(':category', $category);
@@ -44,7 +44,6 @@ class RestaurantRepository extends Repository
       $stmt->bindParam(':description', $description);
       $stmt->bindParam(':address', $address);
       $stmt->bindParam(':phone_number', $phone_number);
-      $stmt->bindParam(':capacity', $capacity);
       $stmt->execute();
     } catch (PDOException $e) {
       echo $e;
@@ -54,7 +53,7 @@ class RestaurantRepository extends Repository
   public function insert_Restaurant(Restaurant $restaurant)
   {
     try {
-      $stmt = $this->conn->prepare("INSERT INTO restaurant (name, category, star, michelinStar, description, address, phone_number, capacity, imagePath) VALUES (:name, :category, :star, :michelinStar, :description, :address, :phone_number, :capacity, :imagePath)");
+      $stmt = $this->conn->prepare("INSERT INTO restaurant (name, category, star, michelinStar, description, address, phone_number, imagePath) VALUES (:name, :category, :star, :michelinStar, :description, :address, :phone_number, :imagePath)");
       $stmt->bindParam(':name', $restaurant->get_name());
       $stmt->bindParam(':category', $restaurant->get_category());
       $stmt->bindParam(':star', $restaurant->get_stars());
@@ -62,7 +61,6 @@ class RestaurantRepository extends Repository
       $stmt->bindParam(':description', $restaurant->get_description());
       $stmt->bindParam(':address', $restaurant->get_address());
       $stmt->bindParam(':phone_number', $restaurant->get_phone_number());
-      $stmt->bindParam(':capacity', $restaurant->get_capacity());
       $stmt->bindParam(':imagePath', $restaurant->get_imagePath());
       $stmt->execute();
     } catch (PDOException $e) {

@@ -91,9 +91,8 @@
     function back() {
         window.location.href = "/food";
     }
-
     function reserve() {
-        // window.location.href = "/tour/reservation";
+        window.location.href = "/yummieTicket";
     }
 </script>
 
